@@ -1,0 +1,27 @@
+-- Create a database from the share.
+create database snowflake_sample_data from share sfc_samples.sample_data;
+
+-- Grant the PUBLIC role access to the database.
+-- Optionally change the role name to restrict access to a subset of users.
+grant imported privileges on database snowflake_sample_data to role public;
+
+select * from "SNOWFLAKE_SAMPLE_DAT"."TPCDS_SF100TCL"."ITEM";
+
+SELECT * FROM "SNOWFLAKE_SAMPLE_DAT"."TPCH_SF10"."SUPPLIER";
+
+SELECT * FROM "SNOWFLAKE_SAMPLE_DAT"."TPCH_SF10"."ORDERS";
+
+SELECT * FROM "SNOWFLAKE_SAMPLE_DAT"."TPCH_SF10"."NATION";
+
+USE "SNOWFLAKE_SAMPLE_DAT"."TPCH_SF10";
+SELECT * FROM "LINEITEM" ;
+
+SELECT COUNT(*) FROM"SNOWFLAKE_SAMPLE_DAT"."TPCH_SF10"."LINEITEM";
+
+SELECT COUNT(*) FROM"SNOWFLAKE_SAMPLE_DAT"."TPCDS_SF100TCL"."CATALOG_SALES";
+
+SELECT * FROM "SNOWFLAKE_SAMPLE_DAT"."TPCDS_SF100TCL"."CATALOG_SALES" LIMT 1000 ;
+USE COMPUTE_WH
+use "DEMODATABASE"
+
+select * from "DEMODATABASE"."PUBLIC"."HEALTHCARE"
