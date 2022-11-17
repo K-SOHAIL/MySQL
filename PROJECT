@@ -3,7 +3,7 @@
 
 USE iNeuron_SQL_Project
 
---TASK 1--
+#########################################################--TASK 1--##############################################################################################
 
 CREATE OR REPLACE TABLE SHOPPING_HISTORY (
   PRODUCT VARCHAR NOT NULL,
@@ -35,7 +35,11 @@ ORDER BY 1,2 desc;
 
 SELECT SUM(UNIT_PRICE) FROM  SHOPPING_HISTORY WHERE PRODUCT = 'SHIRT';
 
+######################################################                   task 2                    #############################################################
+
 USE iNeuron_SQL_Project
+
+given --1--
 
 CREATE  OR REPLACE TABLE PHONES (
     NAME VARCHAR(20) NOT NULL,
@@ -67,7 +71,19 @@ INSERT INTO CALLS (ID,CALLER,CALLEE,DURATION) VALUES
 
 SELECT * FROM CALLS
 
-select 
+with
+cte as (
+		select caller, sum(duration) as dur from calls group by 1
+        union all 
+        select callee, sum(duration) from calls group by 1
+)
+select phones.name as Name
+from cte
+	inner join phones on phones.phone_number = cte.caller
+group by 1
+having sum(cte.dur) >= 10;
+
+
 
 
 
