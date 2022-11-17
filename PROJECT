@@ -5,6 +5,7 @@ USE iNeuron_SQL_Project
 
 #########################################################--TASK 1--##############################################################################################
 
+
 CREATE OR REPLACE TABLE SHOPPING_HISTORY (
   PRODUCT VARCHAR NOT NULL,
   QUANTITY INTEGER NOT NULL,
@@ -27,6 +28,8 @@ INSERT INTO SHOPPING_HISTORY VALUES
 ('JEANS',24,580),
 ('JACKET',12,265),
 ('JEANS',36,780);
+
+
 
 SELECT product,quantity,UNIT_PRICE, SUM(QUANTITY * UNIT_PRICE) as total_price FROM "INEURON_SQL_PROJECT"."PUBLIC"."SHOPPING_HISTORY" 
 group by 1,2,3
@@ -83,6 +86,8 @@ from cte
 group by 1
 having sum(cte.dur) >= 10;
 
+
+given --2----
 
 
 
